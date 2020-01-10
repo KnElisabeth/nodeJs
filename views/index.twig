@@ -1,0 +1,40 @@
+{% extends 'layout.twig' %}
+
+{% block body %}
+
+  <h1>Nouveau Contact !</h1>
+
+  <form id='formUser' method='POST'>
+    <label>Nom</label>
+    <input name='name' type='text'>
+
+    <label>Prénom</label>
+    <input name='firstname' type='text'>
+
+    <label>Avatar</label>
+    <input name='avatar' type='img'>
+
+    <label>Mobile</label>
+    <input name='mobile' type='int'>
+
+    <label>Téléphone</label>
+    <input name='phone' type='int'>
+
+    <label>Email</label>
+    <input name='email' type='email'>
+
+    <button type='submit'>Créer</button>
+  </form>
+
+  <h1>{{title}}</h1>
+
+  {% for users in list %}
+    <table class="table table-striped">
+        <th scope="row"><a href='/{{users._id}}'>{{users.name}}</a></th>
+        <tr>{{users.firstname}}</tr>
+        <tr>{{users.avatar}}</tr>
+        <tr>{{users.date | date("m/d/Y")}}</tr>
+    </table>
+  {% endfor %}
+
+{% endblock %}
